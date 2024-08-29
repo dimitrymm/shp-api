@@ -1,9 +1,9 @@
 const express = require("express");
+const routes = require("./routes");
 
 const app = express();
 
-app.get("/", (request, response) => {
-    response.send("Hello world ola");
-});
+app.use(express.json());
+app.use(routes);
 
 app.listen(3000, () => console.log("Server Started at http://localhost:3000"));
