@@ -9,6 +9,9 @@ class CategoriesController {
 
     async store(request, response) {
         const { name } = request.body;
+        if (!name) {
+            return response.sendStatus(400).json({ error: "Name is required" });
+        }
         const category = await CategoriesRepository.create({ name });
 
         response.json(category);
