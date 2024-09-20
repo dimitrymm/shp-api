@@ -6,7 +6,7 @@ class ProductsRepository {
             `SELECT products.*,categories.name AS category_name
         FROM products
         LEFT JOIN categories ON categories.id = products.category_id
-        ORDER BY products.date
+        ORDER BY products.date DESC
         `
         );
         return rows;
