@@ -8,7 +8,6 @@ class ProductsController {
     show() {}
     async store(request, response) {
         const { name, date, quantity, category_id } = request.body;
-
         if (!name) {
             return response.status(400).json({ error: "Name is Required!" });
         }
