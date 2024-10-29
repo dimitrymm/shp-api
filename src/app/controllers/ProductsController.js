@@ -1,4 +1,5 @@
 const ProductsRepository = require("../repositories/ProductsRepository");
+const isValidUUID = require("../utils/isValidUUID");
 
 class ProductsController {
     async index(request, response) {
@@ -6,11 +7,15 @@ class ProductsController {
         response.json(product);
     }
     show() {}
+
     async store(request, response) {
         const { name, date, quantity, category_id } = request.body;
 
         if (!name) {
             return response.status(400).json({ error: "Name is Required!" });
+        }
+        if (category_id && !isValidUUID(category_id)) {
+            return response.status(400).json({ error: "Invalid Category" });
         }
         const product = await ProductsRepository.create({
             name,
@@ -19,7 +24,7 @@ class ProductsController {
             category_id,
         });
 
-        response.json(product);
+        response.status(201).json(product);
     }
     update() {}
     async delete(request, response) {

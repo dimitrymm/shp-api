@@ -21,6 +21,7 @@ class ProductsRepository {
             `,
             [name, date, quantity, category_id]
         );
+        return row;
     }
     async delete(id) {
         const deleteOp = await db.query(
