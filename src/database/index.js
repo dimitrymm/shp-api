@@ -1,17 +1,16 @@
 const { Client } = require("pg");
 
 const client = new Client({
-    host: "localhost",
-    port: 5432,
-    user: "root",
-    password: "root",
-    database: "shopdimy",
+    connectionString: process.env.POSTGRES_URL,
 });
 
-client.connect((error) => {
-    if (error) throw error;
-    console.log("Connect successfuly!");
-});
+// host: "localhost",
+// port: 5432,
+// user: "root",
+// password: "root",
+// database: "shopdimy",
+
+client.connect();
 
 exports.query = async (query, values) => {
     const { rows } = await client.query(query, values);

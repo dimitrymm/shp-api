@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@vercel/postgres": "^0.10.0",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "pg": "^8.12.0"
