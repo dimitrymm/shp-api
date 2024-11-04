@@ -1,7 +1,7 @@
 module.exports = (request, response, next) => {
     response.setHeader(
         "Access-Control-Allow-Origin",
-        "https://dmm-landing-shad.vercel.app"
+        "https://listoucompras.vercel.app"
     );
     // "http://localhost:5173"
     response.setHeader("Access-Control-Allow-Methods", "*");
